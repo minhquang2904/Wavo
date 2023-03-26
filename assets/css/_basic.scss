@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // transition: all 0.4s ease-in-out;
+}
+html {
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 62.5%;
+  background-color: $bg1-color;
+  width: 100%;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #979797;
+    border-radius: 110px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #757575;
+  }
+}
+.active__number {
+  transition: 0.6s;
+}
+.active__number--1[aria-current="page"],
+.active__number--2[aria-current="page"],
+.active__number--3[aria-current="page"],
+.active__number--4[aria-current="page"] {
+  color: $primary-color;
+  transform: scale(1.1);
+}

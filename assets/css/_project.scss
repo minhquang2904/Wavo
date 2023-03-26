@@ -1,0 +1,142 @@
+.project {
+  padding: $pd-130-content 0 80px;
+  display: flex;
+  position: relative;
+  &__number {
+    @include numPos;
+  }
+  .container {
+    @include containerResponsive;
+  }
+  &__content {
+    &--header {
+      margin-bottom: 70px;
+      h4 {
+        @include subTitle;
+      }
+      h2 {
+        @include title;
+      }
+    }
+    &--title {
+      display: flex;
+      margin-bottom: 40px;
+      @include hideNumberPage {
+        flex-wrap: wrap;
+      }
+      .title__item {
+        @include fontFamily("Open Sans", 600);
+        font-size: 1.4em;
+        color: $white-color;
+        text-transform: uppercase;
+        padding-right: 16px;
+        cursor: pointer;
+        margin-bottom: 4px;
+        &.active {
+          color: $primary-color;
+        }
+      }
+    }
+    &--list {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px;
+      .reveals.active {
+        @include fadeScrollActive;
+      }
+      .project__content--item {
+        @include fadeScroll;
+        padding: 0 15px;
+        flex: 0 0 33.3333333%;
+        max-width: 33.3333333%;
+        @include mobile {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        @include tablet {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+        .item__col {
+          display: block;
+          position: relative;
+          margin-bottom: 30px;
+          overflow: hidden;
+          border-radius: 4px;
+          img {
+            transition: 0.6s ease;
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+          }
+          &:hover {
+            .img__overlay {
+              height: 100%;
+            }
+            img {
+              transform: scale(1.2);
+            }
+            .img__title {
+              .fade {
+                opacity: 0;
+                animation: fadeInUpY 0.6s normal forwards;
+                &--1 {
+                  animation-delay: 0.3s;
+                }
+                &--2 {
+                  animation-delay: 0.4s;
+                }
+                &--3 {
+                  animation-delay: 0.5s;
+                }
+              }
+            }
+          }
+          .img__overlay {
+            transition: 0.6s ease;
+            position: absolute;
+            bottom: 0;
+            height: 0%;
+            width: 100%;
+            background-color: rgba(43, 46, 64, 0.8);
+            border-radius: 4px;
+            display: flex;
+            .img__title {
+              margin: auto;
+              color: $text-nav-color;
+              font-weight: 500;
+              text-align: center;
+              padding: 30px 0;
+              span {
+                display: block;
+                padding: 40px 0;
+                i {
+                  font-size: 2em;
+                }
+              }
+              h4:first-child {
+                font-size: 1.6em;
+                font-weight: 500;
+              }
+              h4:last-child {
+                font-size: 1.5em;
+                position: relative;
+                font-weight: 600;
+                &::before {
+                  position: absolute;
+                  top: 50%;
+                  left: -26px;
+                  transform: translateY(-50%);
+                  content: "";
+                  width: 30px;
+                  height: 2px;
+                  background-color: $primary-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

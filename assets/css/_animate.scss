@@ -1,0 +1,39 @@
+@keyframes fade {
+  0% {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUpY {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showMessage {
+  0% {
+    transform: scale(0) translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateX(-50%) translateY(40%);
+    opacity: 1;
+  }
+}
+
+@keyframes hideMessage {
+  to {
+    transform: scale(0) translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+}

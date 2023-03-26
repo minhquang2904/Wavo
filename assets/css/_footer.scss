@@ -1,0 +1,134 @@
+.footer {
+  padding: 60px 0;
+  display: flex;
+  .container {
+    @include containerResponsive;
+    display: flex;
+  }
+  &__content {
+    margin: auto;
+    &--title {
+      a {
+        display: block;
+        font-weight: 800;
+        font-size: 2.8em;
+        color: $text-nav-color;
+        text-align: center;
+        user-select: none;
+        &::after {
+          content: "avo";
+          color: $primary-color;
+        }
+      }
+    }
+    &--items {
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      @include hideNumberPage {
+        flex-wrap: wrap;
+      }
+      a {
+        @include borderBtn(1px, solid, $primary-color);
+        display: flex;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 0 5px;
+        @include hideNumberPage {
+          margin-bottom: 8px;
+        }
+        transition: 0.6s;
+        &:hover {
+          background-color: $primary-color;
+        }
+        img {
+          fill: $white-color;
+          margin: auto;
+          color: $white-color;
+          width: 46%;
+          height: 46%;
+        }
+      }
+    }
+    &--copyright {
+      @include fontFamily("Open Sans", 600);
+      color: $white-color;
+      font-size: 1.5em;
+      letter-spacing: 1px;
+      text-align: center;
+      span {
+        text-transform: capitalize;
+        a {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+.scroll__top {
+  position: fixed;
+  bottom: -50px;
+  right: -10%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+  transform: rotate(-90deg);
+  h4 {
+    font-size: 1.6em;
+    color: $text-nav-color;
+    @include fontFamily("Open Sans", 200);
+    letter-spacing: 1.1px;
+    position: relative;
+    transition: 0.4s;
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 44px;
+      transform: translateY(-50%);
+      content: "";
+      height: 1px;
+      width: 66px;
+      background-color: $text-nav-color;
+    }
+  }
+  &.active {
+    bottom: 50px;
+    right: 1.7%;
+  }
+  &:hover {
+    h4 {
+      color: $primary-color;
+      &::after {
+        background-color: $primary-color;
+      }
+    }
+  }
+}
+
+.nofication__sendmail {
+  @include fontFamily("Open Sans", 400);
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 999;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  transition: all linear 0.8s;
+  &--item {
+    font-weight: 600;
+    transition: all linear 0.8s;
+    background-color: #37983b;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    border-radius: 30px;
+    color: $white-color;
+    user-select: none;
+    letter-spacing: 1.1px;
+    transform-origin: 0 center;
+  }
+}

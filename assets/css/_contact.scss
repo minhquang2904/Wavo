@@ -1,0 +1,168 @@
+.contact {
+  padding: $pd-130-content 0 80px;
+  display: flex;
+  background-color: $bg2-color;
+  position: relative;
+  &__number {
+    @include numPos;
+  }
+  .container {
+    @include containerResponsive;
+  }
+  &__content {
+    &--header {
+      margin-bottom: 70px;
+      h4 {
+        @include subTitle;
+      }
+      h2 {
+        @include title;
+      }
+    }
+    &--footer {
+      display: flex;
+      margin: 0 -15px;
+      @include mobile {
+        flex-direction: column;
+      }
+      .contact__content--left {
+        padding: 0 15px;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        @include mobile {
+          flex: 0 0 100%;
+          max-width: 100%;
+          margin-bottom: 40px;
+        }
+        .left__contact:nth-child(1),
+        .left__contact:nth-child(2) {
+          margin-bottom: 30px;
+        }
+        .left__contact {
+          @include borderBtn(1px, solid, $border-color);
+          border-radius: 4px;
+          padding: 30px 25px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          transition: 0.6s;
+          &:hover {
+            @include borderBtn(1px, solid, $primary-color);
+          }
+          &.activeBorder {
+            @include borderBtn(1px, solid, $primary-color);
+          }
+          @include mobile {
+            &.activeBorder__mobile {
+              @include borderBtn(1px, solid, $primary-color);
+            }
+          }
+          &--text {
+            h3 {
+              font-size: 1.7em;
+              color: $white-color;
+              margin-bottom: 12px;
+              font-weight: 600;
+              @include hideNumberPage {
+                word-wrap: break-word;
+              }
+            }
+            p {
+              @include fontFamily("Open Sans", 600);
+              font-size: 1.3em;
+              color: $text-nav-color;
+              line-height: 1.6em;
+              @include hideNumberPage {
+                word-break: break-word;
+              }
+            }
+            p:last-child {
+              margin-top: 3px;
+            }
+          }
+          &--icon {
+            i {
+              transition: 0.6s;
+              color: $primary-color;
+              @include mobile {
+                font-size: 5em;
+                margin-left: 20px;
+              }
+              @include hideIconContact {
+                display: none;
+              }
+              @include tablet {
+                display: none;
+              }
+              @include desktop {
+                font-size: 4.4em;
+              }
+              @include desktopLarge {
+                font-size: 5em;
+              }
+            }
+          }
+        }
+      }
+      .contact__content--right {
+        padding: 0 15px;
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+        @include mobile {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        form {
+          .form__group {
+            margin-bottom: 35px;
+            .customInput {
+              @include borderBtn(1px, solid, $border-color);
+              border-radius: 4px;
+              outline: none;
+              width: 100%;
+              background-color: transparent;
+              font-size: 1.6em;
+              color: $white-color;
+              &:focus {
+                @include borderBtn(1px, solid, $primary-color);
+              }
+            }
+            input {
+              padding: 12px;
+              @extend .customInput;
+            }
+            textarea {
+              padding: 18px 12px 12px;
+              height: 150px;
+              resize: none;
+              @extend .customInput;
+            }
+          }
+          button {
+            @include borderBtn(1px, solid, $primary-color);
+            @include fontFamily("Open Sans", 700);
+            min-width: 175px;
+            @include hideNumberPage {
+              min-width: 50px;
+              width: 100%;
+            }
+            text-transform: uppercase;
+            color: $white-color;
+            background-color: $primary-color;
+            padding: 14px 0;
+            font-size: 1.4em;
+            cursor: pointer;
+            border-radius: 4px;
+            line-height: 1.6em;
+            transition: 0.6s;
+            user-select: none;
+            &:hover {
+              background-color: transparent;
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

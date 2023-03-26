@@ -1,0 +1,86 @@
+.skill {
+  padding: $pd-130-content 0 80px;
+  display: flex;
+  background-color: $bg2-color;
+  position: relative;
+  &__number {
+    @include numPos;
+  }
+  .container {
+    @include containerResponsive;
+  }
+  &__content {
+    &--title {
+      margin-bottom: 60px;
+      h4,
+      h2 {
+        text-align: center;
+        font-weight: 600;
+      }
+      h4 {
+        @include subTitle;
+      }
+      h2 {
+        @include title;
+        &::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+    &--items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      .reveals.active {
+        @include fadeScrollActive;
+      }
+      .skill__item {
+        @include fadeScroll;
+        flex: 0 0 30%;
+        padding: 10px;
+        &--col {
+          display: flex;
+          justify-content: center;
+        }
+        &--img {
+          display: flex;
+          width: 160px;
+          height: 160px;
+          background-color: $bg1-color;
+          border-radius: 50%;
+          position: relative;
+          transition: 0.5s;
+          @include mobile {
+            width: 120px;
+            height: 120px;
+          }
+          @include tablet {
+            width: 140px;
+            height: 140px;
+          }
+          &:hover {
+            transform: scale(1.06);
+          }
+          div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 55%;
+            height: 55%;
+            background-size: cover;
+          }
+        }
+        h4 {
+          @include fontFamily("Inter", 500);
+          text-align: center;
+          font-size: 2em;
+          color: $text-nav-color;
+          margin: 16px 0 20px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

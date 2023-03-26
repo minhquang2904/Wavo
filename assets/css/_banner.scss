@@ -1,0 +1,131 @@
+.banner {
+  height: 100vh;
+  display: flex;
+  margin-top: 92px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+  transition: 0.6s;
+  @include mobile {
+    background-position: 60%;
+  }
+  .container {
+    @include containerResponsive;
+  }
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 34, 51, 0.45);
+  }
+  &__content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    .fade {
+      animation: fadeInUpY 0.8s normal forwards;
+      opacity: 0;
+      &--1 {
+        animation-delay: 0s;
+      }
+      &--2 {
+        animation-delay: 0.2s;
+      }
+      &--3 {
+        animation-delay: 0.4s;
+      }
+      &--4 {
+        animation-delay: 0.6s;
+      }
+    }
+    h4,
+    p {
+      font-size: 2.2em;
+      color: #d8d7d6;
+      font-weight: 540;
+      letter-spacing: 1px;
+      @include mobile {
+        font-size: 2em;
+      }
+    }
+    h2 {
+      font-size: 8em;
+      color: $white-color;
+      margin: 30px 0;
+      font-weight: 800;
+      @include mobile {
+        font-size: 5em;
+      }
+      @include hideNumberPage {
+        word-break: break-word;
+      }
+      @include tablet {
+        font-size: 7.5em;
+      }
+    }
+    p {
+      @include fontFamily("Open Sans", 540);
+      margin-bottom: 50px;
+    }
+    a {
+      @include fontFamily("Open Sans", 600);
+      @include borderBtn(1px, solid, $primary-color);
+      display: block;
+      color: $white-color;
+      padding: 14px 0;
+      text-transform: uppercase;
+      background-color: $primary-color;
+      border-radius: 4px;
+      max-width: 155px;
+      width: 100%;
+      font-size: 1.4em;
+      text-align: center;
+      line-height: 1.6em;
+      transition: 0.5s;
+      letter-spacing: 1px;
+      user-select: none;
+      cursor: pointer;
+      &:hover {
+        background-color: transparent;
+        color: $primary-color;
+      }
+    }
+  }
+  .scroll__down {
+    position: absolute;
+    bottom: 36%;
+    right: 0px;
+    cursor: pointer;
+    user-select: none;
+    h4 {
+      @include fontFamily("Open Sans", 600);
+      color: $text-nav-color;
+      font-size: 1.4em;
+      transform: rotate(-90deg);
+      position: relative;
+      transition: 0.4s;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 92px;
+        height: 1px;
+        width: 66px;
+        background-color: $text-nav-color;
+      }
+    }
+    &:hover {
+      h4 {
+        color: $primary-color;
+        &::before {
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,206 @@
+$bg1-color: #1f2233;
+$bg2-color: #24283d;
+$text-nav-color: #f4f4e0;
+$primary-color: #fdd05a;
+$white-color: #ffffff;
+$black-color: #000000;
+$border-color: #3c404b;
+$number-color: #333856;
+$layout-maxWidth: 1140px;
+$layout-maxWidthDesktop: 960px;
+$layout-maxWidthTablet: 720px;
+$layout-maxWidthMobile: 540px;
+$pd-15: 15px;
+$pd-16: 16px;
+$pd-130-content: 130px;
+$pd-15-content: 15px;
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 992px;
+
+@mixin fontFamily($name, $weight) {
+  font-family: $name, sans-serif;
+  font-weight: $weight;
+}
+
+@mixin maxWidth($maxWidth, $pd15) {
+  max-width: $maxWidth;
+  width: 100%;
+  padding: 0 $pd15;
+}
+
+@mixin borderBtn($width, $solid, $color) {
+  border: $width $solid $color;
+}
+
+@mixin numPos {
+  position: absolute;
+  top: $pd-130-content - $pd-15-content;
+  right: 0;
+  display: flex;
+  align-items: center;
+  @include hideNumberPage {
+    display: none;
+  }
+  h2 {
+    @include fontFamily("Open Sans", 600);
+    color: $number-color;
+    font-size: 5.4em;
+    margin-right: 8px;
+    user-select: none;
+  }
+  .line {
+    width: 40px;
+    height: 2px;
+    background-color: $primary-color;
+    user-select: none;
+  }
+}
+
+@mixin fadeScroll {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: 1s;
+}
+
+@mixin fadeScrollActive {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+@mixin title {
+  font-weight: 600;
+  font-size: 4em;
+  @include mobile {
+    font-size: 3.2em;
+  }
+  color: $text-nav-color;
+  padding-bottom: 13px;
+  position: relative;
+  letter-spacing: 0.7px;
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    width: 70px;
+    height: 2px;
+    background-color: $primary-color;
+  }
+}
+
+@mixin subTitle {
+  color: $primary-color;
+  font-size: 2.2em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 0.7px;
+}
+
+// responsive
+@mixin mobile {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin desktopLarge {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin hideNumberPage {
+  @media (max-width: #{576px - 1px}) {
+    @content;
+  }
+}
+
+@mixin hideIconContact {
+  @media (max-width: 350px) {
+    @content;
+  }
+}
+
+@mixin navActive {
+  position: absolute;
+  top: calc(100% + 15px);
+  width: 100%;
+  background-color: $bg1-color;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: 0.4s;
+  visibility: hidden;
+  display: block;
+  &.nav__active {
+    transition: 0.4s;
+    transform: translateY(0px);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@mixin navMenuShow {
+  position: relative;
+  &--menu {
+    user-select: none;
+    transition: 0.4s;
+    &.active {
+      transform: rotate(-45deg);
+      .menu__line {
+        &:nth-child(1) {
+          transform: rotate(90deg) translateY(7px);
+        }
+        &:nth-child(3) {
+          transform: rotate(-90deg) translateY(7px);
+        }
+      }
+    }
+    .menu__line {
+      height: 2px;
+      background-color: $primary-color;
+      transition: 0.4s;
+      &:nth-child(1) {
+        width: 14px;
+        float: right;
+      }
+      &:nth-child(2) {
+        margin: 6px 0;
+        width: 28px;
+      }
+      &:nth-child(3) {
+        width: 14px;
+      }
+    }
+  }
+}
+
+@mixin containerResponsive {
+  transition: 0.6s;
+  margin: auto;
+  @include mobile {
+    @include maxWidth($layout-maxWidthMobile, $pd-15);
+  }
+  @include tablet {
+    @include maxWidth($layout-maxWidthTablet, $pd-15);
+  }
+  @include desktop {
+    @include maxWidth($layout-maxWidthDesktop, $pd-15);
+  }
+  @include desktopLarge {
+    @include maxWidth($layout-maxWidth, $pd-15);
+  }
+}

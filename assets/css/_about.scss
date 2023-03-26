@@ -1,0 +1,135 @@
+.about {
+  padding: $pd-130-content 0 80px;
+  display: flex;
+  position: relative;
+  &__number {
+    @include numPos;
+  }
+  .container {
+    @include containerResponsive;
+  }
+  &__content {
+    display: flex;
+    @include mobile {
+      flex-wrap: wrap;
+    }
+    @include tablet {
+      flex-wrap: wrap;
+    }
+    &--left {
+      padding-right: $pd-15;
+      @include mobile {
+        margin: 0 80px 40px;
+      }
+      @include hideNumberPage {
+        margin: 0 0px 40px;
+      }
+      @include tablet {
+        margin: 0 110px 40px 125px;
+      }
+      @include desktop {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      @include desktopLarge {
+        flex: 0 0 41%;
+        max-width: 41%;
+        justify-content: center;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        padding: 7px;
+        background-color: $bg1-color;
+        box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+        border-radius: 4px;
+      }
+    }
+    &--right {
+      padding-left: $pd-15;
+      @include hideNumberPage {
+        padding-left: 0;
+      }
+      @include desktop {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      @include desktopLarge {
+        flex: 0 0 59%;
+        max-width: 59%;
+      }
+      h4 {
+        @include subTitle;
+      }
+      h2 {
+        margin-bottom: 30px;
+        @include title;
+      }
+      p {
+        @include fontFamily("Open Sans", 400);
+        font-size: 1.5em;
+        color: #d8d7d6;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+      .about__contact {
+        @include borderBtn(1px, solid, $primary-color);
+        @include fontFamily("Open Sans", 400);
+        border-radius: 4px;
+        padding: 25px 25px 10px 25px;
+        display: flex;
+        justify-content: space-between;
+        color: #d8d7d6;
+        margin-bottom: 30px;
+        @include hideNumberPage {
+          flex-direction: column;
+        }
+        span {
+          margin-bottom: 15px;
+        }
+        &--left,
+        &--right {
+          flex: 0 0 50%;
+          span {
+            display: flex;
+            align-items: center;
+            @include hideNumberPage {
+              flex-wrap: wrap;
+            }
+            label {
+              font-size: 1.5em;
+              font-weight: 600;
+            }
+            p {
+              font-size: 1.5em;
+              margin-bottom: 0;
+              font-weight: 500;
+              line-height: 1.5;
+            }
+          }
+        }
+      }
+
+      a {
+        @include fontFamily("Open Sans", 600);
+        @include borderBtn(1px, solid, $primary-color);
+        display: block;
+        max-width: 175px;
+        background-color: $primary-color;
+        padding: 14px 0;
+        text-align: center;
+        border-radius: 4px;
+        color: $white-color;
+        font-size: 1.4em;
+        line-height: 1.5em;
+        text-transform: uppercase;
+        transition: 0.5s;
+        user-select: none;
+        &:hover {
+          color: $primary-color;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
